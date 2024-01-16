@@ -17,98 +17,114 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        ElevatedButton(
-          onPressed: () {
-            widget.onSelected(0);
-            setState(() {
-              selectedIndex = 0;
-            });
-          },
-          style: ElevatedButton.styleFrom(
-            foregroundColor: selectedIndex == 0 ? Colors.white : Colors.black,
-            backgroundColor:
-                selectedIndex == 0 ? const Color(0xFF6A4DBA) : Colors.grey[200],
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(6),
-              ),
-            ),
-          ),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SvgPicture.asset(
-                  'assets/svg/timer.svg',
-                  colorFilter: ColorFilter.mode(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      // color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                widget.onSelected(0);
+                setState(() {
+                  selectedIndex = 0;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor:
                     selectedIndex == 0 ? Colors.white : Colors.black,
-                    BlendMode.srcIn,
+                backgroundColor: selectedIndex == 0
+                    ? const Color(0xFF6A4DBA)
+                    : Colors.grey[200],
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(6),
                   ),
-                  width: 24.0,
-                  height: 24.0,
                 ),
-                const SizedBox(width: 6),
-                Text('One-time',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: selectedIndex == 0 ? Colors.white : Colors.black,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Roboto',
-                    )),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(width: 4),
-        ElevatedButton(
-          onPressed: () {
-            widget.onSelected(1);
-            setState(() {
-              selectedIndex = 1;
-            });
-          },
-          style: ElevatedButton.styleFrom(
-            foregroundColor: selectedIndex == 1 ? Colors.white : Colors.black,
-            backgroundColor:
-                selectedIndex == 1 ? const Color(0xFF6A4DBA) : Colors.grey[200],
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(6),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0, vertical: 10.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SvgPicture.asset(
+                      'assets/svg/timer.svg',
+                      colorFilter: ColorFilter.mode(
+                        selectedIndex == 0 ? Colors.white : Colors.black,
+                        BlendMode.srcIn,
+                      ),
+                      width: 24.0,
+                      height: 24.0,
+                    ),
+                    const SizedBox(width: 6),
+                    Text('One-time',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color:
+                              selectedIndex == 0 ? Colors.white : Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Roboto',
+                        )),
+                  ],
+                ),
               ),
             ),
-          ),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-            child: Row(
-              children: [
-                SvgPicture.asset(
-                  'assets/svg/history.svg',
-                  colorFilter: ColorFilter.mode(
+            const SizedBox(width: 4),
+            ElevatedButton(
+              onPressed: () {
+                widget.onSelected(1);
+                setState(() {
+                  selectedIndex = 1;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor:
                     selectedIndex == 1 ? Colors.white : Colors.black,
-                    BlendMode.srcIn,
+                backgroundColor: selectedIndex == 1
+                    ? const Color(0xFF6A4DBA)
+                    : Colors.grey[200],
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(6),
                   ),
-                  width: 24.0,
-                  height: 24.0,
                 ),
-                const SizedBox(width: 6),
-                Text('Recurring',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: selectedIndex == 1 ? Colors.white : Colors.black,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Roboto',
-                    )),
-              ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0, vertical: 10.0),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/svg/history.svg',
+                      colorFilter: ColorFilter.mode(
+                        selectedIndex == 1 ? Colors.white : Colors.black,
+                        BlendMode.srcIn,
+                      ),
+                      width: 24.0,
+                      height: 24.0,
+                    ),
+                    const SizedBox(width: 6),
+                    Text('Recurring',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color:
+                              selectedIndex == 1 ? Colors.white : Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Roboto',
+                        )),
+                  ],
+                ),
+              ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

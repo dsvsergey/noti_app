@@ -15,7 +15,7 @@ class MainRoute {
       routes: [
         GoRoute(
           path: AppRoute.home,
-          builder: (context, state) => const HomeScreen(),
+          builder: (context, state) => HomeScreen(),
         ),
         GoRoute(
           path: AppRoute.login,
