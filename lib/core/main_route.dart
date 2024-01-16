@@ -14,12 +14,14 @@ class MainRoute {
     _router = GoRouter(
       routes: [
         GoRoute(
-          path: AppRoute.home,
-          builder: (context, state) => HomeScreen(),
+          path: '/',
+          name: AppRoute.login,
+          builder: (context, state) => const LoginScreen(),
         ),
         GoRoute(
-          path: AppRoute.login,
-          builder: (context, state) => const LoginScreen(),
+          path: '/${AppRoute.home}',
+          name: AppRoute.home,
+          builder: (context, state) => HomeScreen(),
         ),
       ],
     );

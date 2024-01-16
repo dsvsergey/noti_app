@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/app_route.dart';
 import '../../widgets/time_input/time_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -23,6 +25,13 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         _isErrorVisible = false;
       });
+      if (_hour == '12' && _minute == '59') {
+        context.pushReplacementNamed(AppRoute.home);
+      } else {
+        setState(() {
+          _isErrorVisible = true;
+        });
+      }
     }
   }
 
