@@ -21,14 +21,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // context.pop();
-          },
-        ),
-        title: const Text('Notifications',
-            style: TextStyle(color: AppColors.whiteColor)),
+        foregroundColor: AppColors.whiteColor,
+        title: const Text('Notifications'),
         centerTitle: true,
         backgroundColor: AppColors.primaryColor,
       ),

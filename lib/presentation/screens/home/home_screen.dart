@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
+import 'package:noti_app/core/app_router.dart';
 import 'package:noti_app/presentation/config/app_colors.dart';
 import 'package:noti_app/presentation/models/notification.dart';
 import 'package:noti_app/presentation/screens/home/cubit/home_cubit.dart';
@@ -148,9 +149,8 @@ class HomeScreen extends StatelessWidget {
               height: 24.0,
             ),
             onTap: () {
-              // context.goNamed(AppRoute.history, pathParameters: {
-              //   'minute': _history[index].toString(),
-              // });
+              AutoRouter.of(context)
+                  .push(HistoryRoute(minute: _history[index]));
             },
           ),
         );

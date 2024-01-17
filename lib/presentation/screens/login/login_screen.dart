@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:noti_app/core/app_router.dart';
 
 import '../../config/app_colors.dart';
 import '../../widgets/time_input/time_input_widget.dart';
@@ -27,7 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
         _isErrorVisible = false;
       });
       if (_hour == '12' && _minute == '59') {
-        // context.pushReplacementNamed(AppRoute.home);
+        context.router.replace(HomeRoute());
+        // AutoRouter.of(context).push(HomeRoute());
       } else {
         setState(() {
           _isErrorVisible = true;
