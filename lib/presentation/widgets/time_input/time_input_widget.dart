@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:noti_app/presentation/config/app_colors.dart';
 
 class TimeInputWidget extends StatefulWidget {
   final Function(String hour, String minute) onTimeSelected;
@@ -73,7 +74,7 @@ class _TimeInputWidgetState extends State<TimeInputWidget> {
         _buildTimeInputField(_hourController2, _focusNode2),
         const SizedBox(width: 11),
         const Text(':',
-            style: TextStyle(fontSize: 32, color: Color(0xFFE6E6E6))),
+            style: TextStyle(fontSize: 32, color: AppColors.dividerColor)),
         const SizedBox(width: 11),
         _buildTimeInputField(_minuteController1, _focusNode3),
         const SizedBox(width: 12),
@@ -90,10 +91,10 @@ class _TimeInputWidgetState extends State<TimeInputWidget> {
       width: 44,
       height: 48,
       decoration: BoxDecoration(
-        color: Colors.white, //
+        color: AppColors.lightGreyColor, //
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: const Color(0xFFE6E6E6),
+          color: AppColors.dividerColor,
           width: 1,
         ),
       ),
@@ -108,14 +109,14 @@ class _TimeInputWidgetState extends State<TimeInputWidget> {
           fontFamily: 'Roboto',
           fontSize: 16.0,
           fontWeight: FontWeight.w700,
-          color: Color(0xFF1A1717),
+          color: AppColors.primaryColor,
           height: 24 / 16,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           counterText: "",
           border: InputBorder.none,
-          hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
-          contentPadding: const EdgeInsets.symmetric(vertical: 12),
+          hintStyle: TextStyle(color: AppColors.lightGreyColor),
+          contentPadding: EdgeInsets.symmetric(vertical: 12),
         ),
         inputFormatters: [
           FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),

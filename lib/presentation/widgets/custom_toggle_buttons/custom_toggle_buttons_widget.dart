@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../config/app_colors.dart';
+
 class CustomToggleButtonsWidget extends StatefulWidget {
   final Function(int index) onSelected;
 
@@ -19,10 +21,10 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.0),
       ),
-      // color: Colors.white,
+      // color: AppColors.whiteColor,
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Row(
@@ -36,11 +38,12 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
                 });
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor:
-                    selectedIndex == 0 ? Colors.white : Colors.black,
+                foregroundColor: selectedIndex == 0
+                    ? AppColors.whiteColor
+                    : AppColors.primaryColor,
                 backgroundColor: selectedIndex == 0
-                    ? const Color(0xFF6A4DBA)
-                    : Colors.grey[200],
+                    ? AppColors.borderColor
+                    : AppColors.lightGreyColor,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(6),
@@ -56,7 +59,9 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
                     SvgPicture.asset(
                       'assets/svg/timer.svg',
                       colorFilter: ColorFilter.mode(
-                        selectedIndex == 0 ? Colors.white : Colors.black,
+                        selectedIndex == 0
+                            ? AppColors.whiteColor
+                            : AppColors.primaryColor,
                         BlendMode.srcIn,
                       ),
                       width: 24.0,
@@ -66,8 +71,9 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
                     Text('One-time',
                         style: TextStyle(
                           fontSize: 16,
-                          color:
-                              selectedIndex == 0 ? Colors.white : Colors.black,
+                          color: selectedIndex == 0
+                              ? AppColors.whiteColor
+                              : AppColors.primaryColor,
                           fontWeight: FontWeight.w700,
                           fontFamily: 'Roboto',
                         )),
@@ -84,10 +90,11 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
                 });
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor:
-                    selectedIndex == 1 ? Colors.white : Colors.black,
+                foregroundColor: selectedIndex == 1
+                    ? AppColors.whiteColor
+                    : AppColors.primaryColor,
                 backgroundColor: selectedIndex == 1
-                    ? const Color(0xFF6A4DBA)
+                    ? AppColors.borderColor
                     : Colors.grey[200],
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
@@ -103,7 +110,9 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
                     SvgPicture.asset(
                       'assets/svg/history.svg',
                       colorFilter: ColorFilter.mode(
-                        selectedIndex == 1 ? Colors.white : Colors.black,
+                        selectedIndex == 1
+                            ? AppColors.whiteColor
+                            : AppColors.primaryColor,
                         BlendMode.srcIn,
                       ),
                       width: 24.0,
@@ -113,8 +122,9 @@ class _CustomToggleButtonsWidgetState extends State<CustomToggleButtonsWidget> {
                     Text('Recurring',
                         style: TextStyle(
                           fontSize: 16,
-                          color:
-                              selectedIndex == 1 ? Colors.white : Colors.black,
+                          color: selectedIndex == 1
+                              ? AppColors.whiteColor
+                              : AppColors.primaryColor,
                           fontWeight: FontWeight.w700,
                           fontFamily: 'Roboto',
                         )),

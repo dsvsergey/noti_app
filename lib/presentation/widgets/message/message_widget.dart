@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:noti_app/presentation/config/app_colors.dart';
 import 'package:noti_app/presentation/widgets/hover_button/hover_button_widget.dart';
 
 class MessageWidget extends StatelessWidget {
@@ -26,8 +27,8 @@ class MessageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FAFB),
-        border: Border.all(color: const Color(0xFF6A4DBA), width: 1),
+        color: AppColors.lightGreyColor,
+        border: Border.all(color: AppColors.borderColor, width: 1),
         borderRadius: BorderRadius.circular(16.0),
       ),
       // color: ,
@@ -50,12 +51,12 @@ class MessageWidget extends StatelessWidget {
                         width: 24.0,
                         height: 24.0,
                         colorFilter: const ColorFilter.mode(
-                          Color(0xFF6A4DBA),
+                          AppColors.borderColor,
                           BlendMode.srcIn,
                         ),
                       ),
-                      borderColor: const Color(0xFF6A4DBA),
-                      backgroundColor: const Color(0xFFF8FAFB),
+                      borderColor: AppColors.borderColor,
+                      backgroundColor: AppColors.lightGreyColor,
                       onPressed: () {},
                       width: 32.0,
                       height: 32.0),
@@ -69,8 +70,8 @@ class MessageWidget extends StatelessWidget {
                         BlendMode.srcIn,
                       ),
                     ),
-                    borderColor: const Color(0xFFF8FAFB),
-                    backgroundColor: const Color(0xFFF8FAFB),
+                    borderColor: AppColors.lightGreyColor,
+                    backgroundColor: AppColors.lightGreyColor,
                     onPressed: _onDelete,
                     width: 32.0,
                     height: 32.0,
@@ -83,13 +84,13 @@ class MessageWidget extends StatelessWidget {
                 children: [
                   const Text('Time: ',
                       style: TextStyle(
-                          color: Color(0xFF747377),
+                          color: AppColors.greyColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400)),
                   Text(
                     _time,
                     style: const TextStyle(
-                        color: Colors.black,
+                        color: AppColors.primaryColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w700),
                   ),
@@ -102,14 +103,14 @@ class MessageWidget extends StatelessWidget {
                   const Text(
                     'Message: ',
                     style: TextStyle(
-                        color: Color(0xFF747377),
+                        color: AppColors.greyColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
                     _message,
                     style: const TextStyle(
-                        color: Colors.black,
+                        color: AppColors.primaryColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w700),
                   ),
@@ -124,15 +125,16 @@ class MessageWidget extends StatelessWidget {
                       onPressed: _onSelectTrigger1,
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xFFF8FAFB)),
+                            AppColors.lightGreyColor),
                         foregroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xFF6A4DBA)),
+                            AppColors.borderColor),
                         minimumSize: MaterialStateProperty.all<Size>(
                             const Size(double.infinity, 40)),
                         shape: MaterialStateProperty.all<OutlinedBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side: const BorderSide(color: Color(0xFF6A4DBA)),
+                            side:
+                                const BorderSide(color: AppColors.borderColor),
                           ),
                         ),
                       ),
@@ -141,7 +143,7 @@ class MessageWidget extends StatelessWidget {
                               fontFamily: 'Roboto',
                               fontSize: 14.0,
                               fontWeight: FontWeight.w700,
-                              color: Color(0xFF6A4DBA))),
+                              color: AppColors.borderColor)),
                     ),
                   ),
                   const SizedBox(width: 13),
@@ -150,15 +152,16 @@ class MessageWidget extends StatelessWidget {
                       onPressed: _onSelectTrigger2,
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xFFF8FAFB)),
+                            AppColors.lightGreyColor),
                         foregroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xFF6A4DBA)),
+                            AppColors.borderColor),
                         minimumSize: MaterialStateProperty.all<Size>(
                             const Size(double.infinity, 40)),
                         shape: MaterialStateProperty.all<OutlinedBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side: const BorderSide(color: Color(0xFF6A4DBA)),
+                            side:
+                                const BorderSide(color: AppColors.borderColor),
                           ),
                         ),
                       ),
@@ -167,7 +170,7 @@ class MessageWidget extends StatelessWidget {
                               fontFamily: 'Roboto',
                               fontSize: 14.0,
                               fontWeight: FontWeight.w700,
-                              color: Color(0xFF6A4DBA))),
+                              color: AppColors.borderColor)),
                     ),
                   ),
                 ],

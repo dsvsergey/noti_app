@@ -1,12 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:noti_app/presentation/config/app_colors.dart';
 
 import '../../widgets/message/message_widget.dart';
 
+@RoutePage()
 class HistoryScreen extends StatefulWidget {
   late final List<String> _history;
   HistoryScreen({super.key, required int minute}) {
-    _history = List.generate(minute, (index) => '${index + 1} Minute');
+    _history = List.generate(2, (_) => '$minute Minute');
   }
 
   @override
@@ -18,10 +21,16 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text('Notifications', style: TextStyle(color: Colors.white)),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // context.pop();
+          },
+        ),
+        title: const Text('Notifications',
+            style: TextStyle(color: AppColors.whiteColor)),
         centerTitle: true,
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.primaryColor,
       ),
       body: Column(
         children: <Widget>[
@@ -44,7 +53,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF6A4DBA),
+                backgroundColor: AppColors.borderColor,
                 minimumSize: const Size(double.infinity, 56),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -55,15 +64,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 children: [
                   SvgPicture.asset(
                     'assets/svg/add_circle.svg',
-                    colorFilter:
-                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.whiteColor, BlendMode.srcIn),
                     width: 24.0,
                     height: 24.0,
                   ),
                   const SizedBox(width: 6),
                   const Text(
                     'Add new notification',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.whiteColor),
                   ),
                 ],
               ),

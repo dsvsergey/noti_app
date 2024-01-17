@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../core/app_route.dart';
+import '../../config/app_colors.dart';
 import '../../widgets/time_input/time_input_widget.dart';
 
+@RoutePage()
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -26,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
         _isErrorVisible = false;
       });
       if (_hour == '12' && _minute == '59') {
-        context.pushReplacementNamed(AppRoute.home);
+        // context.pushReplacementNamed(AppRoute.home);
       } else {
         setState(() {
           _isErrorVisible = true;
@@ -39,9 +40,10 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Log In', style: TextStyle(color: Colors.white)),
+        title:
+            const Text('Log In', style: TextStyle(color: AppColors.whiteColor)),
         centerTitle: true,
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.primaryColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -55,15 +57,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 72),
                 const Text('Log In',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 32, color: Colors.black)),
+                    style:
+                        TextStyle(fontSize: 32, color: AppColors.primaryColor)),
                 const SizedBox(height: 16),
                 const Text('Enter current time in hh : mm format',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16, color: Color(0xFF747377))),
+                    style: TextStyle(fontSize: 16, color: AppColors.greyColor)),
                 const SizedBox(height: 42),
                 const Text('12:59',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 32, color: Colors.black)),
+                    style:
+                        TextStyle(fontSize: 32, color: AppColors.primaryColor)),
                 const SizedBox(height: 42),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 if (_isErrorVisible) ...[
                   const SizedBox(height: 20),
                   const Text('The time is wrong. Try again.',
-                      style: TextStyle(color: Colors.red, fontSize: 14),
+                      style: TextStyle(color: AppColors.redColor, fontSize: 14),
                       textAlign: TextAlign.center),
                 ],
               ],
@@ -91,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: ElevatedButton(
                 onPressed: _validateTime,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6A4DBA),
+                  backgroundColor: AppColors.borderColor,
                   minimumSize: const Size(double.infinity, 56),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -102,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontFamily: 'Roboto',
                       fontSize: 16.0,
                       fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                      color: AppColors.whiteColor,
                       height: 24 / 16,
                     )),
               ),

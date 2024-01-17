@@ -1,13 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
+import 'package:noti_app/presentation/config/app_colors.dart';
 import 'package:noti_app/presentation/models/notification.dart';
 import 'package:noti_app/presentation/screens/home/cubit/home_cubit.dart';
 import 'package:noti_app/presentation/widgets/message/message_widget.dart';
 
 import '../../widgets/custom_toggle_buttons/custom_toggle_buttons_widget.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
@@ -22,11 +25,7 @@ class HomeScreen extends StatelessWidget {
     )
   ];
 
-  final List<String> _history = [
-    '1 Minute',
-    '3 Minute',
-    '1 Minute',
-  ];
+  final List<int> _history = [1, 3, 5];
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +36,14 @@ class HomeScreen extends StatelessWidget {
           return Scaffold(
               appBar: AppBar(
                 title: const Text('Notifications',
-                    style: TextStyle(color: Colors.white)),
+                    style: TextStyle(color: AppColors.whiteColor)),
                 centerTitle: true,
-                backgroundColor: Colors.black,
+                backgroundColor: AppColors.primaryColor,
               ),
               body: Column(
                 children: <Widget>[
                   Container(
-                    color: Colors.black,
+                    color: AppColors.primaryColor,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -88,7 +87,7 @@ class HomeScreen extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF6A4DBA),
+                backgroundColor: AppColors.borderColor,
                 minimumSize: const Size(double.infinity, 56),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -99,15 +98,15 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     'assets/svg/add_circle.svg',
-                    colorFilter:
-                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.whiteColor, BlendMode.srcIn),
                     width: 24.0,
                     height: 24.0,
                   ),
                   const SizedBox(width: 6),
                   const Text(
                     'Add new notification',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.whiteColor),
                   ),
                 ],
               ),
@@ -135,20 +134,24 @@ class HomeScreen extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: _history.length,
       separatorBuilder: (context, index) =>
-          const Divider(color: Color(0xFFE6E6E6)),
+          const Divider(color: AppColors.dividerColor, height: 1),
       itemBuilder: (context, index) {
         return SizedBox(
           height: 46,
           child: ListTile(
-            title: Text(_history[index]),
+            title: Text('${_history[index]} Minute'),
             trailing: SvgPicture.asset(
               'assets/svg/arrow_back_ios_icon.svg',
-              colorFilter:
-                  const ColorFilter.mode(Color(0xFF6A4DBA), BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(
+                  AppColors.borderColor, BlendMode.srcIn),
               width: 24.0,
               height: 24.0,
             ),
-            onTap: () {},
+            onTap: () {
+              // context.goNamed(AppRoute.history, pathParameters: {
+              //   'minute': _history[index].toString(),
+              // });
+            },
           ),
         );
       },
