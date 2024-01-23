@@ -36,10 +36,10 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
               appBar: AppBar(
-                title: const Text('Notifications',
-                    style: TextStyle(color: AppColors.whiteColor)),
+                title: const Text('Notifications'),
                 centerTitle: true,
                 backgroundColor: AppColors.primaryColor,
+                foregroundColor: AppColors.whiteColor,
               ),
               body: Column(
                 children: <Widget>[
@@ -120,8 +120,10 @@ class HomeScreen extends StatelessWidget {
             child: MessageWidget(
               time: _messages[index].time,
               message: _messages[index].message,
-              onSelectTrigger1: () {},
-              onSelectTrigger2: () {},
+              onSelectTrigger1: () =>
+                  context.router.push(const SelectTriggerRoute()),
+              onSelectTrigger2: () =>
+                  context.router.push(const SelectTriggerRoute()),
               onDelete: () {},
             ),
           );

@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LoginScreen(),
       );
     },
+    SelectTriggerRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SelectTriggerScreen(),
+      );
+    },
   };
 }
 
@@ -118,6 +124,20 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SelectTriggerScreen]
+class SelectTriggerRoute extends PageRouteInfo<void> {
+  const SelectTriggerRoute({List<PageRouteInfo>? children})
+      : super(
+          SelectTriggerRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SelectTriggerRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
