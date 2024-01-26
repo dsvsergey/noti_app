@@ -45,24 +45,30 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     color: AppColors.primaryColor,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: CustomToggleButtonsWidget(
-                            onSelected: (index) {
-                              if (index == 0) {
-                                context.read<HomeCubit>().oneTimeNotification();
-                              } else {
-                                context
-                                    .read<HomeCubit>()
-                                    .recurringNotification();
-                              }
-                            },
+                    child: Expanded(
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: CustomToggleButtonsWidget(
+                                onSelected: (index) {
+                                  if (index == 0) {
+                                    context
+                                        .read<HomeCubit>()
+                                        .oneTimeNotification();
+                                  } else {
+                                    context
+                                        .read<HomeCubit>()
+                                        .recurringNotification();
+                                  }
+                                },
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(height: 8),

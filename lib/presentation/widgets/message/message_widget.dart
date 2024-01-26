@@ -121,6 +121,7 @@ class MessageWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
+                    flex: 1,
                     child: ElevatedButton(
                       onPressed: _onSelectTrigger1,
                       style: ButtonStyle(
@@ -138,16 +139,20 @@ class MessageWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: const Text('Select trigger 1',
-                          style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.borderColor)),
+                      child: const FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text('Select trigger 1',
+                            style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.borderColor)),
+                      ),
                     ),
                   ),
-                  const SizedBox(width: 13),
+                  const SizedBox(width: 12),
                   Expanded(
+                    flex: 1,
                     child: ElevatedButton(
                       onPressed: _onSelectTrigger2,
                       style: ButtonStyle(
@@ -165,12 +170,15 @@ class MessageWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: const Text('Select trigger 2',
-                          style: TextStyle(
-                              fontFamily: 'Roboto',
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.borderColor)),
+                      child: const FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text('Select trigger 2',
+                            style: TextStyle(
+                                fontFamily: 'Roboto',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.borderColor)),
+                      ),
                     ),
                   ),
                 ],
