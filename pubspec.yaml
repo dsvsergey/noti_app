@@ -20,8 +20,7 @@ dependencies:
   flutter_svg: ^2.0.9
   cupertino_icons: ^1.0.6
   auto_route: ^7.8.4
-  talker_flutter: ^3.6.0
-  talker_bloc_logger: ^2.4.0
+  logging: ^1.2.0
 
 dev_dependencies:
   flutter_test:

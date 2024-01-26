@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:talker_flutter/talker_flutter.dart';
 
 import 'app_router.dart';
 
@@ -17,9 +15,7 @@ class _ApplicationState extends State<Application> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: _appRouter.config(
-        navigatorObservers: () => [TalkerRouteObserver(GetIt.I<Talker>())],
-      ),
+      routerConfig: _appRouter.config(),
       title: 'Noti App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
